@@ -14,9 +14,13 @@ Turn a final manuscript or course text into ordered chapter audio with one narra
 | **Cost** | Free to install. Each render uses credits on your Beatra account, and paid steps run only when you ask for that exact render or approve its card. |
 | **Works with** | Claude Code, Codex, OpenClaw |
 
+<p align="center"><img src="assets/cover.webp" width="800" alt="Listing cover for The Lighthouse Keeper&#x27;s Almanac, an invented novella, showing a storm-battered lighthouse lit by a single candle. AI-generated with Beatra."></p>
+
+*Listing cover for The Lighthouse Keeper's Almanac, an invented novella, showing a storm-battered lighthouse lit by a single candle. AI-generated with Beatra.*
+
 | Skill | Entry point | Version |
 | --- | --- | --- |
-| [`ai-audiobook-narration`](skills/ai-audiobook-narration) | [SKILL.md](skills/ai-audiobook-narration/SKILL.md) | 0.2.1 |
+| [`ai-audiobook-narration`](skills/ai-audiobook-narration) | [SKILL.md](skills/ai-audiobook-narration/SKILL.md) | 0.2.2 |
 
 This repository is published automatically from [beatra-ai/beatra-skills](https://github.com/beatra-ai/beatra-skills/tree/main/skills/ai-audiobook-narration). Report issues there.
 
@@ -41,6 +45,30 @@ Or paste this into your agent:
 
 ```text
 Install the ai-audiobook-narration skill from https://github.com/beatra-ai/ai-audiobook-generator-skill (folder skills/ai-audiobook-narration), then follow its SKILL.md to connect my Beatra account.
+```
+
+## Examples
+
+<p align="center"><img src="assets/cover.webp" width="800" alt="Listing cover for The Lighthouse Keeper&#x27;s Almanac, an invented novella, showing a storm-battered lighthouse lit by a single candle. AI-generated with Beatra."></p>
+
+[▶ Listen (MP3)](assets/sample.mp3)
+
+*Representative sample chapter from an invented novella, The Lighthouse Keeper's Almanac, read in 43 seconds by one narrator voice with dialogue and recurring names. AI-generated with Beatra.*
+
+Prompt:
+
+```text
+The Lighthouse Keeper's Almanac. Chapter one: the night the lamp went dark.
+
+On the ninth of November, at a quarter past two in the morning, the lamp at Gullrock Point went out. Maren Holloway had kept that light for eleven winters, and it had never once failed her.
+
+She climbed the hundred and six iron steps with a candle cupped in her hand. Outside, the wind worked at the glass like a patient thief.
+
+"Tobias," she called down the stairwell, "bring the spare wick, and bring the almanac."
+
+Her nephew's voice came up thin and frightened. "The almanac says nothing about tonight, Aunt Maren."
+
+"Then we shall write tonight into it," she said, and struck the match.
 ```
 
 ## What you get

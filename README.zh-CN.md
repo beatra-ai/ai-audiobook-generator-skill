@@ -14,9 +14,13 @@
 | **费用** | 安装免费。每次生成消耗 Beatra 账号积分，只有你明确要求这次生成或批准确认卡后才会付费。 |
 | **支持的 Agent** | Claude Code、Codex、OpenClaw |
 
+<p align="center"><img src="assets/cover.webp" width="800" alt="虚构中篇小说《The Lighthouse Keeper&#x27;s Almanac》的有声书封面，画面是风暴中只剩一支烛光的灯塔。由 Beatra AI 生成。"></p>
+
+*虚构中篇小说《The Lighthouse Keeper's Almanac》的有声书封面，画面是风暴中只剩一支烛光的灯塔。由 Beatra AI 生成。*
+
 | Skill | Entry point | Version |
 | --- | --- | --- |
-| [`ai-audiobook-narration`](skills/ai-audiobook-narration) | [SKILL.md](skills/ai-audiobook-narration/SKILL.md) | 0.2.1 |
+| [`ai-audiobook-narration`](skills/ai-audiobook-narration) | [SKILL.md](skills/ai-audiobook-narration/SKILL.md) | 0.2.2 |
 
 本仓库由 [beatra-ai/beatra-skills](https://github.com/beatra-ai/beatra-skills/tree/main/skills/ai-audiobook-narration) 自动发布，问题请到那里反馈。
 
@@ -40,6 +44,30 @@ gh skill install beatra-ai/ai-audiobook-generator-skill ai-audiobook-narration
 
 ```text
 从 https://github.com/beatra-ai/ai-audiobook-generator-skill 安装 ai-audiobook-narration skill（目录 skills/ai-audiobook-narration），然后按它的 SKILL.md 连接我的 Beatra 账号。
+```
+
+## 效果示例
+
+<p align="center"><img src="assets/cover.webp" width="800" alt="虚构中篇小说《The Lighthouse Keeper&#x27;s Almanac》的有声书封面，画面是风暴中只剩一支烛光的灯塔。由 Beatra AI 生成。"></p>
+
+[▶ 试听（MP3）](assets/sample.mp3)
+
+*虚构中篇小说《The Lighthouse Keeper's Almanac》的代表性样章，由同一位旁白声音朗读 43 秒，含对白和反复出现的人名地名。由 Beatra AI 生成。*
+
+提示词：
+
+```text
+The Lighthouse Keeper's Almanac. Chapter one: the night the lamp went dark.
+
+On the ninth of November, at a quarter past two in the morning, the lamp at Gullrock Point went out. Maren Holloway had kept that light for eleven winters, and it had never once failed her.
+
+She climbed the hundred and six iron steps with a candle cupped in her hand. Outside, the wind worked at the glass like a patient thief.
+
+"Tobias," she called down the stairwell, "bring the spare wick, and bring the almanac."
+
+Her nephew's voice came up thin and frightened. "The almanac says nothing about tonight, Aunt Maren."
+
+"Then we shall write tonight into it," she said, and struck the match.
 ```
 
 ## 你能得到什么
