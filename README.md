@@ -20,7 +20,7 @@ Turn a final manuscript or course text into ordered chapter audio with one narra
 
 | Skill | Entry point | Version |
 | --- | --- | --- |
-| [`ai-audiobook-narration`](skills/ai-audiobook-narration) | [SKILL.md](skills/ai-audiobook-narration/SKILL.md) | 0.2.5 |
+| [`ai-audiobook-narration`](skills/ai-audiobook-narration) | [SKILL.md](skills/ai-audiobook-narration/SKILL.md) | 0.2.8 |
 
 This repository is published automatically from [beatra-ai/beatra-skills](https://github.com/beatra-ai/beatra-skills/tree/main/skills/ai-audiobook-narration). Report issues there.
 
@@ -102,12 +102,12 @@ The selected narrator voice and narration style carry across the book, with list
 
 It turns final readable text into ordered chapter audio with one consistent narrator, organized for editing, translation review, multi-cast mixing, M4B assembly, mastering, and publishing.
 
-## Updates
+## Updates and security
 
-Each installed skill checks for a new version at most once a day, verifies the
-official archive before replacing itself, and leaves your installation untouched
-if anything fails. Turn it off at any time — see
-`references/automatic-updates-and-safety.md` inside the skill.
+Since the 2026-10 release, this skill contains no self-updater: it runs only the
+files you installed and never replaces them on its own. Update it with the tool
+you installed it with — `npx skills update ai-audiobook-narration` or `gh skill update ai-audiobook-narration`.
+Details: `references/updates-and-security.md` inside the skill.
 
 ## License
 
