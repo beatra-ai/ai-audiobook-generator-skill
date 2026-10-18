@@ -2,7 +2,7 @@
 
 [English](./README.md) | 简体中文
 
-把最终书稿或课程讲稿制作成按章节排列的音频，选择适合长篇聆听的旁白，先用代表性样章校准读音和节奏，再把同一声音延续到整本内容，在 Claude Code、Codex 或 OpenClaw 里直接完成。
+把最终书稿或课程讲稿制作成按章节排列的音频，选择适合长篇聆听的旁白，先用代表性样章校准读音和节奏，再把同一声音延续到整本内容，在 Claude Code、Cursor、Codex、Windsurf、Cline 或 OpenClaw 里直接完成。
 
 > [!IMPORTANT]
 > 生成需要 [Beatra](https://beatra.ai) 账号并消耗积分，安装本身不收费。
@@ -10,9 +10,10 @@
 | 问题 | 回答 |
 | --- | --- |
 | **能做什么** | 把最终书稿或课程讲稿制作成按章节排列的音频，选择适合长篇聆听的旁白，通过代表性样章校准读音和节奏，再把同一声音延续到整本内容。 |
+| **底层模型** | MiniMax Speech 2.8 HD、MiniMax Speech 2.8 Turbo、MiniMax Voice Clone、Qwen Image 2.0 Fast、Qwen Image 3.0、Qwen Image 3.0 Pro、GPT Image 2.5 Flare、GPT Image 2.5 Sunburst、GPT Image 2、Wan Image 2.7 Fast、Qwen Image 2.0 Pro、Wan Image 2.7 Pro、MiniMax Image 01 Live |
 | **运行要求** | Python 3.10+，以及能加载 `SKILL.md` 的 Agent |
 | **费用** | 安装免费。每次生成消耗 Beatra 账号积分，只有你明确要求这次生成或批准确认卡后才会付费。 |
-| **支持的 Agent** | Claude Code、Codex、OpenClaw |
+| **支持的 Agent** | Claude Code、Cursor、Codex、Windsurf、Cline、OpenClaw |
 
 <p align="center"><img src="assets/cover.webp" width="800" alt="虚构中篇小说《The Lighthouse Keeper&#x27;s Almanac》的有声书封面，画面是风暴中只剩一支烛光的灯塔。由 Beatra AI 生成。"></p>
 
@@ -20,7 +21,7 @@
 
 | Skill | Entry point | Version |
 | --- | --- | --- |
-| [`ai-audiobook-narration`](skills/ai-audiobook-narration) | [SKILL.md](skills/ai-audiobook-narration/SKILL.md) | 0.2.9 |
+| [`ai-audiobook-narration`](skills/ai-audiobook-narration) | [SKILL.md](skills/ai-audiobook-narration/SKILL.md) | 0.3.0 |
 
 本仓库由 [beatra-ai/beatra-skills](https://github.com/beatra-ai/beatra-skills/tree/main/skills/ai-audiobook-narration) 自动发布，问题请到那里反馈。
 
@@ -38,7 +39,7 @@ npx skills add beatra-ai/ai-audiobook-generator-skill
 gh skill install beatra-ai/ai-audiobook-generator-skill ai-audiobook-narration
 ```
 
-也可以克隆本仓库，把 `skills/ai-audiobook-narration` 复制到 `~/.claude/skills/`（Claude Code）、`~/.agents/skills/`（Codex）或 `~/.openclaw/skills/`（OpenClaw）。
+也可以克隆本仓库，把 `skills/ai-audiobook-narration` 复制到 `~/.claude/skills/`（Claude Code）、`~/.cursor/skills/`（Cursor）、`~/.agents/skills/`（Codex）、`~/.codeium/windsurf/skills/`（Windsurf）、`~/.cline/skills/`（Cline）或 `~/.openclaw/skills/`（OpenClaw）。
 
 或者把下面这段话发给你的 Agent：
 
@@ -72,7 +73,7 @@ Her nephew's voice came up thin and frightened. "The almanac says nothing about 
 
 ## 技术规格与输出限制
 
-截至 2026-10-16。实时列表：https://docs.beatra.ai/zh/docs/models
+截至 2026-10-18。实时列表：https://docs.beatra.ai/zh/docs/models
 
 - **上传** — 单个文件最大 100 MB；同时适用下方各模型的输入限制
 - **语音合成** — 2 个模型（MiniMax Speech 2.8 HD、MiniMax Speech 2.8 Turbo）；FLAC、MP3、OPUS、PCM、WAV；40 种语言；采样率 8、16、22.05、24、32、44.1 kHz；单次最多 50000 字符
@@ -83,12 +84,12 @@ Her nephew's voice came up thin and frightened. "The almanac says nothing about 
 
 ## 为什么用 Beatra，而不是直接调用模型 API
 
-- **一个账号用到本 skill 的全部模型** — 语音合成 2；声音克隆 1；文生图 10（截至 2026-10-16），一次 Beatra 登录即可使用，不必分别管理各家模型的 key。
+- **一个账号用到本 skill 的全部模型** — 语音合成 2；声音克隆 1；文生图 10（MiniMax Speech 2.8 HD、MiniMax Speech 2.8 Turbo、MiniMax Voice Clone、Qwen Image 2.0 Fast、Qwen Image 3.0、Qwen Image 3.0 Pro、GPT Image 2.5 Flare、GPT Image 2.5 Sunburst、GPT Image 2、Wan Image 2.7 Fast、Qwen Image 2.0 Pro、Wan Image 2.7 Pro、MiniMax Image 01 Live）（截至 2026-10-18），一次 Beatra 登录即可使用，不必分别管理各家模型的 key。
 - **花不花钱由你决定** — 只有你明确要求这次生成，或批准显示实时积分估算的确认卡后才会付费。
 - **先策划，再生成** — skill 先帮你规划、指导和检查，再在 Beatra 上生成。
 - **文件可以核验** — `skills/` 下的每个文件都与 cdn.beatra.ai 上的发布归档逐字节一致，每次推送前用 SHA-256 校验。
 - **更新由你掌控** — 不含自更新程序；用安装时的工具更新。
-- **在你的 Agent 里运行** — Claude Code、Codex、OpenClaw。
+- **在你的 Agent 里运行** — Claude Code、Cursor、Codex、Windsurf、Cline、OpenClaw。
 
 ## 你能得到什么
 

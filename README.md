@@ -2,7 +2,7 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-Turn a final manuscript or course text into ordered chapter audio with one narrator, a representative sample chapter first, and focused refinements, from inside Claude Code, Codex, or OpenClaw.
+Turn a final manuscript or course text into ordered chapter audio with one narrator, a representative sample chapter first, and focused refinements, from inside Claude Code, Cursor, Codex, Windsurf, Cline, or OpenClaw.
 
 > [!IMPORTANT]
 > Rendering needs a [Beatra](https://beatra.ai) account and uses credits. The skill itself is free to install.
@@ -10,9 +10,10 @@ Turn a final manuscript or course text into ordered chapter audio with one narra
 | Question | Answer |
 | --- | --- |
 | **What it does** | Turn final manuscript or course text into ordered chapter audio with one narrator, a representative sample, clear pricing, and focused refinements. |
+| **Models** | MiniMax Speech 2.8 HD, MiniMax Speech 2.8 Turbo, MiniMax Voice Clone, Qwen Image 2.0 Fast, Qwen Image 3.0, Qwen Image 3.0 Pro, GPT Image 2.5 Flare, GPT Image 2.5 Sunburst, GPT Image 2, Wan Image 2.7 Fast, Qwen Image 2.0 Pro, Wan Image 2.7 Pro, MiniMax Image 01 Live |
 | **Requirements** | Python 3.10+ and an agent that loads `SKILL.md` |
 | **Cost** | Free to install. Each render uses credits on your Beatra account, and paid steps run only when you ask for that exact render or approve its card. |
-| **Works with** | Claude Code, Codex, OpenClaw |
+| **Works with** | Claude Code, Cursor, Codex, Windsurf, Cline, OpenClaw |
 
 <p align="center"><img src="assets/cover.webp" width="800" alt="Listing cover for The Lighthouse Keeper&#x27;s Almanac, an invented novella, showing a storm-battered lighthouse lit by a single candle. AI-generated with Beatra."></p>
 
@@ -20,7 +21,7 @@ Turn a final manuscript or course text into ordered chapter audio with one narra
 
 | Skill | Entry point | Version |
 | --- | --- | --- |
-| [`ai-audiobook-narration`](skills/ai-audiobook-narration) | [SKILL.md](skills/ai-audiobook-narration/SKILL.md) | 0.2.9 |
+| [`ai-audiobook-narration`](skills/ai-audiobook-narration) | [SKILL.md](skills/ai-audiobook-narration/SKILL.md) | 0.3.0 |
 
 This repository is published automatically from [beatra-ai/beatra-skills](https://github.com/beatra-ai/beatra-skills/tree/main/skills/ai-audiobook-narration). Report issues there.
 
@@ -39,7 +40,8 @@ gh skill install beatra-ai/ai-audiobook-generator-skill ai-audiobook-narration
 ```
 
 Or clone this repository and copy `skills/ai-audiobook-narration` into `~/.claude/skills/` for Claude Code,
-`~/.agents/skills/` for Codex, or `~/.openclaw/skills/` for OpenClaw.
+`~/.cursor/skills/` for Cursor, `~/.agents/skills/` for Codex, `~/.codeium/windsurf/skills/` for Windsurf,
+`~/.cline/skills/` for Cline, or `~/.openclaw/skills/` for OpenClaw.
 
 Or paste this into your agent:
 
@@ -73,7 +75,7 @@ Her nephew's voice came up thin and frightened. "The almanac says nothing about 
 
 ## Technical Specifications & Output Limits
 
-As of 2026-10-16. Live list: https://docs.beatra.ai/en/docs/models
+As of 2026-10-18. Live list: https://docs.beatra.ai/en/docs/models
 
 - **Uploads** — up to 100 MB per file; the per-model input limits below also apply
 - **Text to speech** — 2 models (MiniMax Speech 2.8 HD, MiniMax Speech 2.8 Turbo); FLAC, MP3, OPUS, PCM, WAV; 40 languages; sample rates 8, 16, 22.05, 24, 32, 44.1 kHz; up to 50000 characters per request
@@ -84,12 +86,12 @@ As of 2026-10-16. Live list: https://docs.beatra.ai/en/docs/models
 
 ## Why use Beatra instead of calling model APIs directly
 
-- **One account for every model this skill uses** — Text to speech 2; Voice cloning 1; Text to image 10 (as of 2026-10-16), behind one Beatra sign-in; no keys from individual model providers to manage.
+- **One account for every model this skill uses** — Text to speech 2; Voice cloning 1; Text to image 10 (MiniMax Speech 2.8 HD, MiniMax Speech 2.8 Turbo, MiniMax Voice Clone, Qwen Image 2.0 Fast, Qwen Image 3.0, Qwen Image 3.0 Pro, GPT Image 2.5 Flare, GPT Image 2.5 Sunburst, GPT Image 2, Wan Image 2.7 Fast, Qwen Image 2.0 Pro, Wan Image 2.7 Pro, MiniMax Image 01 Live) (as of 2026-10-18), behind one Beatra sign-in; no keys from individual model providers to manage.
 - **You decide what gets paid for** — Paid renders run only when you ask for that exact render or approve its card, which shows the live credit estimate.
 - **Direction before rendering** — the skill plans, directs, and reviews the work, then renders it on Beatra.
 - **Files you can verify** — every file under `skills/` matches the release archive on cdn.beatra.ai byte for byte, checked by SHA-256 before each push.
 - **Updates you control** — no self-updater; update with the tool you installed it with.
-- **Runs in your agent** — Claude Code, Codex, OpenClaw.
+- **Runs in your agent** — Claude Code, Cursor, Codex, Windsurf, Cline, OpenClaw.
 
 ## What you get
 
