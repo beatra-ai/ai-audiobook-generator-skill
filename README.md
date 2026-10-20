@@ -1,6 +1,8 @@
 # AI Audiobook Generator Skill
 
-English | [简体中文](./README.zh-CN.md)
+English | [简体中文](./README.zh-CN.md) | [日本語](./README.ja.md)
+
+> 👉 See also [AI Podcast Voiceover Skill](https://github.com/beatra-ai/ai-podcast-voiceover-skill)
 
 Turn a final manuscript or course text into ordered chapter audio with one narrator, a representative sample chapter first, and focused refinements, from inside Claude Code, Cursor, Codex, Windsurf, Cline, or OpenClaw.
 
@@ -56,6 +58,12 @@ Install the ai-audiobook-narration skill from https://github.com/beatra-ai/ai-au
 [▶ Listen (MP3)](assets/sample.mp3)
 
 *Representative sample chapter from an invented novella, The Lighthouse Keeper's Almanac, read in 43 seconds by one narrator voice with dialogue and recurring names. AI-generated with Beatra.*
+
+Ask your agent:
+
+```text
+Narrate ./almanac-manuscript.md as an audiobook with one narrator voice. Start with a representative sample from chapter one so I can check the pacing and how the names are pronounced before you do the rest.
+```
 
 Prompt:
 

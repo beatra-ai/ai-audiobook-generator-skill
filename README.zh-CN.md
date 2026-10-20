@@ -1,6 +1,8 @@
 # AI Audiobook Generator Skill
 
-[English](./README.md) | 简体中文
+[English](./README.md) | 简体中文 | [日本語](./README.ja.md)
+
+> 👉 也看看 [AI Podcast Voiceover Skill](https://github.com/beatra-ai/ai-podcast-voiceover-skill)
 
 把最终书稿或课程讲稿制作成按章节排列的音频，选择适合长篇聆听的旁白，先用代表性样章校准读音和节奏，再把同一声音延续到整本内容，在 Claude Code、Cursor、Codex、Windsurf、Cline 或 OpenClaw 里直接完成。
 
@@ -54,6 +56,12 @@ gh skill install beatra-ai/ai-audiobook-generator-skill ai-audiobook-narration
 [▶ 试听（MP3）](assets/sample.mp3)
 
 *虚构中篇小说《The Lighthouse Keeper's Almanac》的代表性样章，由同一位旁白声音朗读 43 秒，含对白和反复出现的人名地名。由 Beatra AI 生成。*
+
+在你的 Agent 里这样说：
+
+```text
+把 ./almanac-manuscript.md 做成有声书，用同一个旁白声音。先从第一章选一段有代表性的试读，让我检查语速和人名读音，再继续做剩下的部分。
+```
 
 提示词：
 
