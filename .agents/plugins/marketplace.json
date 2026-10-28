@@ -1,0 +1,20 @@
+{
+  "name": "ai-audiobook-generator-skill",
+  "interface": {
+    "displayName": "AI Audiobook Generator"
+  },
+  "plugins": [
+    {
+      "name": "ai-audiobook-narration",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    }
+  ]
+}
