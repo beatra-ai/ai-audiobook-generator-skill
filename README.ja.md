@@ -62,6 +62,12 @@ Gemini CLI 拡張機能として：
 gemini extensions install https://github.com/beatra-ai/ai-audiobook-generator-skill
 ```
 
+Antigravity CLI プラグインとして：
+
+```bash
+agy plugin install https://github.com/beatra-ai/ai-audiobook-generator-skill
+```
+
 GitHub CLI を使う場合：
 
 ```bash
@@ -106,6 +112,15 @@ Her nephew's voice came up thin and frightened. "The almanac says nothing about 
 "Then we shall write tonight into it," she said, and struck the match.
 ```
 
+## 入力と出力
+
+| | 種類 | 形式 | 仕様 |
+| --- | --- | --- | --- |
+| **入力** | テキスト：章の順に並べた完成原稿または講座原稿 | — | — |
+| **入力** | 音声：自分の声をクローンするためのナレーター音声（任意） | — | 10〜300 秒／1 ファイル最大 20 MB |
+| **出力** | 音声：聴く順に並んだ章ごとの音声、全編同じナレーター | MP3 | 40 言語 |
+| **出力** | 画像：配信用のカバー画像（任意） | PNG | 1 リクエストにつき 1 枚 |
+
 ## 技術仕様と出力上限
 
 2026-10-18 時点。最新の一覧：https://docs.beatra.ai/ja/docs/models
@@ -134,19 +149,19 @@ Her nephew's voice came up thin and frightened. "The almanac says nothing about 
 
 ### 制作を始めるには何が必要ですか？
 
-代表的な一章以上の完成原稿、章の順番、言語または方言、重要な人名や用語の読み方を用意してください。
+章の順に並べた原稿または講座原稿、読む言語または方言、人名や用語の読み方メモです。
 
-### 全編の前にサンプル音声を確認できますか？
+### オーディオブックはどんな形で届きますか？
 
-はい。代表章の音声を先に確認し、その後で残りの章数と現在の費用目安を見て、続けるかどうかを決められます。
+章ごとに1本の MP3 を聴く順に並べ、全編を同じナレーターのボイスで読み上げます。配信用のカバー画像も付けられます。
 
-### 全編で同じナレーターの声を使えますか？
+### 全編で同じナレーターのボイスを使えますか？
 
-選んだ声と基本的な語り方を全編で保ち、返された音声を聴いて読み方と章間の一貫性を整えます。
+どの章も、選んだナレーターのボイスと語り方で読み、人名や用語は指定した読み方で読みます。
 
-### この制作フローでは何を受け取れますか？
+### 自分の声で読み上げられますか？
 
-読み上げ可能な完成原稿から始め、同じナレーターによる章ごとの音声を順番に受け取れます。元ファイルの整理、翻訳、複数キャストのミックス、M4B 結合、マスタリング、配信は必要に応じて前後の工程として進められます。
+はい。10秒〜5分、20 MB までの音声サンプルを送ると、そこからクローンしたボイスで各章を読み上げます。
 
 ## 更新とセキュリティ
 
@@ -156,7 +171,9 @@ Her nephew's voice came up thin and frightened. "The almanac says nothing about 
 
 ## ライセンス
 
-[MIT-0](LICENSE)：商用を含め、自由に使用・改変・再配布できます。クレジット表記は不要です。ClawHub 上のこれらのスキルと同じ条件です。
+このリポジトリのスキルファイル（`SKILL.md`、リファレンス、スクリプト）とこの README は [MIT-0](LICENSE) で提供しています。商用を含め、自由に使用・改変・再配布でき、クレジット表記は不要です。
+
+生成は Beatra のクラウドサービスで行われ、[Beatra 利用規約](https://beatra.ai/terms?utm_source=github&utm_medium=flagship&utm_campaign=ai-audiobook-generator-skill)が適用されます。
 
 ## リンク
 

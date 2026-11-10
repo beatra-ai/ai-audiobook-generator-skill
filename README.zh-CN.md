@@ -62,6 +62,12 @@ copilot plugin install ai-audiobook-narration@ai-audiobook-generator-skill
 gemini extensions install https://github.com/beatra-ai/ai-audiobook-generator-skill
 ```
 
+作为 Antigravity CLI 插件：
+
+```bash
+agy plugin install https://github.com/beatra-ai/ai-audiobook-generator-skill
+```
+
 使用 GitHub CLI：
 
 ```bash
@@ -106,6 +112,15 @@ Her nephew's voice came up thin and frightened. "The almanac says nothing about 
 "Then we shall write tonight into it," she said, and struck the match.
 ```
 
+## 输入与输出
+
+| | 类型 | 格式 | 规格 |
+| --- | --- | --- | --- |
+| **输入** | 文本：按章节排好的最终书稿或课程讲稿 | — | — |
+| **输入** | 音频：用来克隆自有旁白声音的样音（可选） | — | 10–300 秒；单个文件最大 20 MB |
+| **输出** | 音频：按收听顺序排列的章节音频，全书同一旁白 | MP3 | 40 种语言 |
+| **输出** | 图片：有声书封面（可选） | PNG | 单次 1 张 |
+
 ## 技术规格与输出限制
 
 截至 2026-10-18。实时列表：https://docs.beatra.ai/zh/docs/models
@@ -143,19 +158,19 @@ Her nephew's voice came up thin and frightened. "The almanac says nothing about 
 
 ### 开始制作需要准备什么？
 
-至少准备一个有代表性章节的最终可朗读文本、章节顺序、语言或方言，以及重要的人名和术语读音。
+按章节排好的书稿或讲稿、朗读语言或方言，以及人名和术语的读音说明。
 
-### 可以先听样章再决定是否做整本吗？
+### 有声书怎么交付？
 
-可以。先制作并试听一个有代表性的样章，用它校准旁白、读音与节奏，同时查看剩余章节数量和当前费用估算。
+每章一个 MP3，按收听顺序排列，全书同一个旁白音色，还可以配一张有声书封面。
 
-### 整本书会保持同一旁白音色吗？
+### 整本书会用同一个旁白音色吗？
 
-选定的旁白声音和播读方式会延续到整本内容，并通过试听复查保持读音与跨章节表现一致。
+每一章都用你选的旁白音色和播读方式来读，人名和术语按你定好的读法。
 
-### 这个流程会交付什么？
+### 能用我自己的声音来读吗？
 
-从最终可朗读文本开始，交付由同一旁白按顺序制作的章节音频，并为原文件整理、翻译审校、多人配音混音、M4B 合并、母带处理和平台发布做好清晰组织。
+可以。上传一段 10 秒到 5 分钟、不超过 20 MB 的录音，各章就用从中克隆出的音色来读。
 
 ## 更新与安全
 
@@ -165,7 +180,9 @@ Her nephew's voice came up thin and frightened. "The almanac says nothing about 
 
 ## 许可证
 
-[MIT-0](LICENSE)：可自由使用、修改和再分发，包括商用，无需署名；与这些 skill 在 ClawHub 上的条款一致。
+本仓库的 Skill 文件（`SKILL.md`、参考文档和脚本）与本 README 采用 [MIT-0](LICENSE) 许可：可自由使用、修改和再分发，包括商用，无需署名。
+
+内容生成在 Beatra 云端完成，适用 [Beatra 服务条款](https://www.beatra.cn/terms?utm_source=github&utm_medium=flagship&utm_campaign=ai-audiobook-generator-skill)。
 
 ## 相关链接
 

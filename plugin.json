@@ -10,6 +10,15 @@
   "homepage": "https://beatra.ai/skills/ai-audiobook-narration",
   "repository": "https://github.com/beatra-ai/ai-audiobook-generator-skill",
   "license": "MIT-0",
+  "keywords": [
+    "AI audiobook generator",
+    "AI audiobook narration",
+    "audiobook narrator",
+    "manuscript to audiobook",
+    "chapter-by-chapter audiobook",
+    "consistent narrator voice",
+    "audiobook sample chapter"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
@@ -19,6 +28,13 @@
         "developerName": "Beatra AI",
         "category": "Creativity",
         "websiteURL": "https://beatra.ai/skills/ai-audiobook-narration",
+        "supportURL": "https://github.com/beatra-ai/.github/blob/main/SUPPORT.md",
+        "privacyPolicyURL": "https://beatra.ai/privacy",
+        "termsOfServiceURL": "https://beatra.ai/terms",
+        "defaultPrompt": [
+          "Use AI Audiobook Narration to turn my mystery novel into an audiobook, read by a calm narrator. Chapter one is attached."
+        ],
+        "composerIcon": "./assets/icon.png",
         "logo": "./assets/icon.png"
       }
     }

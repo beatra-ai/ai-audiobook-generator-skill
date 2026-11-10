@@ -62,6 +62,12 @@ As a Gemini CLI extension:
 gemini extensions install https://github.com/beatra-ai/ai-audiobook-generator-skill
 ```
 
+As an Antigravity CLI plugin:
+
+```bash
+agy plugin install https://github.com/beatra-ai/ai-audiobook-generator-skill
+```
+
 With the GitHub CLI:
 
 ```bash
@@ -108,6 +114,15 @@ Her nephew's voice came up thin and frightened. "The almanac says nothing about 
 "Then we shall write tonight into it," she said, and struck the match.
 ```
 
+## Inputs and outputs
+
+| | Type | Formats | Specifications |
+| --- | --- | --- | --- |
+| **Input** | Text — Final manuscript or course text in chapter order | — | — |
+| **Input** | Audio — Narrator sample for your own cloned voice (optional) | — | 10–300 s; up to 20 MB each |
+| **Output** | Audio — Chapter audio in listening order, read by one narrator | MP3 | 40 languages |
+| **Output** | Image — Listing cover (optional) | PNG | 1 image per request |
+
 ## Technical Specifications & Output Limits
 
 As of 2026-10-18. Live list: https://docs.beatra.ai/en/docs/models
@@ -145,19 +160,19 @@ As of 2026-10-18. Live list: https://docs.beatra.ai/en/docs/models
 
 ### What do I need to start?
 
-Bring final readable text for at least one representative chapter, the intended language or dialect, chapter order, and any important pronunciation notes.
+The manuscript or course text in chapter order, the language or dialect, and pronunciation notes for names and terms.
 
-### Can I hear a sample before narrating the whole book?
+### How is the book delivered?
 
-Yes. The workflow starts with a representative pilot, then shows the remaining chapter count and current price estimate before you decide whether to continue.
+One MP3 per chapter in reading order, read in one narrator voice, with an optional listing cover image.
 
 ### Will every chapter use the same narrator voice?
 
-The selected narrator voice and narration style carry across the book, with listening review keeping pronunciation and chapter-to-chapter delivery consistent.
+Every chapter is read in the narrator voice and reading style you pick, with names and terms read the way you set them.
 
-### What does this workflow deliver?
+### Can the book be read in my own voice?
 
-It turns final readable text into ordered chapter audio with one consistent narrator, organized for editing, translation review, multi-cast mixing, M4B assembly, mastering, and publishing.
+Yes. Send a recording of your voice of 10 seconds to 5 minutes, up to 20 MB, and the chapters are read in the voice cloned from it.
 
 ## Updates and security
 
@@ -168,9 +183,10 @@ Details: `references/updates-and-security.md` inside the skill.
 
 ## License
 
-[MIT-0](LICENSE) — free to use, modify, and redistribute, including
-commercially. No attribution required. Same terms as these skills carry on
-ClawHub.
+The skill files in this repository (`SKILL.md`, references, and scripts) and this README are licensed under
+[MIT-0](LICENSE): free to use, modify, and redistribute, including commercially, with no attribution required.
+
+Media generation runs on Beatra's cloud service under the [Beatra Terms of Service](https://beatra.ai/terms?utm_source=github&utm_medium=flagship&utm_campaign=ai-audiobook-generator-skill).
 
 ## Links
 
