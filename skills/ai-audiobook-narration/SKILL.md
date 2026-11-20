@@ -35,10 +35,12 @@ inputs that are still missing:
 Ask for a missing hard input rather than inventing it. Create a
 chapter-and-segment ledger. Preserve intended listening order, label every
 segment, and split at chapter, section, scene, paragraph, or sentence
-boundaries. Never split mid-sentence: keep single-speaker `input` at or below
-`50,000` characters, and chunk native multi-character chapter dialogue scenes
-at or below `2,000` characters and `2–50` turns. Remove only page-only material
-the user does not want spoken. Follow
+boundaries. Never split mid-sentence. If `beatra.speech.validate` or synthesis
+refuses the text as too long, follow the refusal message: split at natural
+chapter, section, or sentence boundaries and submit the parts in order. If a
+dialogue request is refused as too long, split it at scene or turn boundaries as
+the refusal message says. Remove only page-only material the user does not want
+spoken. Follow
 [chapter production](references/chapter-production.md) for text preparation,
 dialogue scenes inside chapters, casting, and the pilot boundary.
 
@@ -58,25 +60,25 @@ When a narrator or character sample is supplied, do not default to cloning
 without explicit user intent and full confirmation discipline from
 [speech, voices, cloning, and audio finishing](references/speech-and-audio.md):
 
-1. **Sample noise clean (paid)**: if the sample has background music or noise,
-   offer paid `beatra.audio.process` (`operation="isolate_voice"`, `source`,
-   `{"capability": "audio_voice_isolation"}`, `4.6 s – 5 min`, `<= 100 MB`) on
-   its own card first.
-2. **Confirmation #1 — Consent (`consent_attested: true`)**: require explicit
+1. **Confirmation #1 — Consent (`consent_attested: true`)**: require explicit
    user confirmation in the current conversation of voice ownership or
    permission before uploading (`scripts/mcp_client.py upload`). Access to a file
    is never consent.
-3. **Query 3 cloning routes live**: call `beatra.models.list` with
-   `{"capability": "voice_clone", "include_activation_required": true}` — fast
-   `auto` immediate clone, 10-language expressive/dialogue/S2S clone, or
-   free-trial precision training returning `status="pending_activation"`.
-4. **Confirmation #2 — Trial activation (`beatra.voices.activate`)**: if
-   `beatra.voices.clone` returns `status="pending_activation"`, show
-   `activation.quote` (or refresh free with `voice_id` + `client_request_id`
-   omitting `confirmation_token` after 24-hour expiry), obtain explicit credit
-   and terms approval, then call `beatra.voices.activate` with `voice_id`,
-   `confirmation_token`, exact `confirm_credits` matching `activation.quote`,
-   and a fresh `client_request_id`.
+2. **Sample noise clean (paid)**: if the sample has background music or noise,
+   offer paid `beatra.audio.process` (`operation="isolate_voice"`, `source`,
+   `{"capability": "audio_voice_isolation"}`, `4.6 s – 5 min`, `<= 100 MB`) on
+   its own card first.
+3. **Clone model choice**: select the clone model as described in
+   [speech, voices, cloning, and audio finishing](references/speech-and-audio.md)
+   §5. When a cloned voice will speak in a multi-character dialogue scene,
+   select the clone card that states multi-speaker dialogue; a single-narrator
+   book keeps the default. Then show the production card with the live clone
+   price; after the user approves it, submit once and handle any refusal per
+   [billing, errors, and recovery](references/billing-errors-and-recovery.md).
+4. **Confirmation #2 — Activation (`beatra.voices.activate`)**: when a clone
+   result or a listed voice has status `pending_activation`, follow §5 Step E of
+   [speech, voices, cloning, and audio finishing](references/speech-and-audio.md)
+   before using the voice.
 5. **Confirmation #3 — Two-step permanent deletion (`beatra.voices.delete`)**:
    when deleting a clone, call step 1 (`voice_id` only), display
    `paid_slot_warning`, `irreversible_notice`, and 15-minute expiry, wait for
@@ -104,7 +106,7 @@ nonfiction or courses. See
 
 - **Smart Voice Director (`beatra.speech.prepare_script`, `{"capability": "speech_script"}`)**:
   compile long-form pauses, narrative beats, and pronunciation cues from plain
-  manuscript text + `instructions` (`<= 2,000` chars) without changing spoken
+  manuscript text + `instructions` without changing spoken
   manuscript wording and without hand-writing braced tags. Inspect `directed`
   and `scripts[]` (fix via `warnings` if `synthesis` is `null`), then pass
   ready `scripts[].synthesis` unchanged + fresh `client_request_id`. Respect max
@@ -112,14 +114,14 @@ nonfiction or courses. See
   language/context, calling `prepare_script` again changing only `voice` (and
   `model`) reuses direction at zero cost (balance must cover admission).
 - **Dialog scenes inside chapters (`beatra.speech.synthesize_dialogue`)**: when
-  fiction or dialogue chapters use `2–10` voices with
-  `capabilities.supports_dialogue == true` (`<= 4` ready clones) and scenes fit
-  `2–50` turns and `<= 2,000` characters per call, run free
+  fiction or dialogue chapters use several voices with
+  `capabilities.supports_dialogue == true`, run free
   `beatra.speech.validate_dialogue` and generate cohesive multi-cast scenes
-  with `beatra.speech.synthesize_dialogue` (chunking longer dialogues cleanly
-  with `previous_text` / `next_text`). Keep single-narrator continuity if
-  preferred, or fall back to segmented `beatra.speech.synthesize` when > 10
-  voices, > 4 clones, or specialty dialects apply.
+  with `beatra.speech.synthesize_dialogue` (when the refusal message says a
+  dialogue is too long, split it at scene or turn boundaries with
+  `previous_text` / `next_text`). Keep single-narrator continuity if
+  preferred, or fall back to segmented `beatra.speech.synthesize` when the cast
+  is refused or specialty dialects apply.
 
 ## Golden path
 
@@ -139,8 +141,8 @@ calls.
 
 Free tools: `beatra.voices.list`, `beatra.voices.preview`, `beatra.voices.update`,
 `beatra.models.list`, `beatra.speech.validate`, `beatra.speech.validate_dialogue`,
-`beatra.voices.delete` step 1, tokenless `beatra.voices.activate` quote
-refresh, `beatra.tasks.get`, `beatra.tasks.list`, `beatra.wallet.get`, and
+`beatra.voices.delete` step 1, `beatra.tasks.get`, `beatra.tasks.list`,
+`beatra.wallet.get`, and
 `beatra.wallet.ledger`. Keep `wallet.get` and `wallet.ledger` strictly optional
 read-only lookups when the user asks about balance or charges — never make
 `wallet.get` a mandatory gate before submit, and never ask users to verify they
@@ -148,7 +150,7 @@ have enough credits first.
 
 Paid tools (`beatra.speech.prepare_script`, `beatra.speech.synthesize`,
 `beatra.speech.synthesize_dialogue`, `beatra.voices.clone`,
-`beatra.voices.activate` with `confirmation_token`, `beatra.images.generate`,
+`beatra.voices.activate`, `beatra.images.generate`,
 `beatra.audio.generate_sfx`, `beatra.audio.process`) require live pricing and
 never reuse remembered credit figures or hardcoded numbers. Count weighted
 characters per live card (`beatra_weighted_characters`: Han = 2, others = 1),
